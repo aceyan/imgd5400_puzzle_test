@@ -3,9 +3,7 @@ layout: default
 ---
 <head>
 <style type="text/css">
-span{
-   color:red;
-}
+	 
 </style>
 
 </head>
@@ -39,9 +37,14 @@ document.onkeypress = function (event) {
 		index++;
 
 		var typeInStr = paragraphText.substring(0,index);
-		var restStr = paragraphText.substring(index, paragraphText.length);
+		var cursorStr = paragraphText.charAt(index);
+		var restStr = paragraphText.substring(index + 1, paragraphText.length);
 
-		element.innerHTML = "<span>" + typeInStr + "</span>" + restStr;
+		var typeInStrHTML = "<span style='color:#ff0000;'>" + typeInStr + "</span>";
+		var cursorStrHTML = "<span style='color:#0000ff; text-decoration: underline ;'>"  + cursorStr.bold() + "</span>";
+		var restStrHTML = restStr;
+
+		element.innerHTML =  typeInStrHTML +  cursorStrHTML + restStrHTML;
 		if(index >= paragraphText.length)
 		{
 			 alert('Finish!');
