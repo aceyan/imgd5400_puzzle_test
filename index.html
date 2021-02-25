@@ -1,9 +1,54 @@
 ---
 layout: default
 ---
+<head>
+<style type="text/css">
+span{
+   color:red;
+}
+</style>
+
+</head>
 <body>
-  <h1> Hello </h1>
-  <h2> Peril </h2>
-   <iframe width="560" height="315" src="https://www.youtube.com/embed/2f9aRNykkgg&autoplay=1" frameborder="0"></iframe>
-  
+  <h1> Level1 </h1>
+  <h2> Story </h2>
+   <p id="p1">paragraph</p>
 </body>
+
+  <script type="text/javascript">
+var paragraphText = "IMGD5400 is super cool. I love it so much! Do you guys love it?";
+var index = 0;
+
+var element = document.getElementById("p1");
+element.innerHTML = paragraphText;
+/*
+document.onkeydown = function (event) {
+    var e = event || window.event || arguments.callee.caller.arguments[0];
+	 alert(e.keyCode + "   "+ 'i'.charCodeAt(index) );
+    if (e && e.keyCode == 'i'.charCodeAt(0)) { 
+        alert('A');
+    }
+};
+*/
+
+document.onkeypress = function (event) {
+    var e = event || window.event;
+     //alert(e.keyCode + "   "+ 'i'.charCodeAt(index) );
+    if (e && e.keyCode == paragraphText.charCodeAt(index)) { 
+        
+		index++;
+
+		var typeInStr = paragraphText.substring(0,index);
+		var restStr = paragraphText.substring(index, paragraphText.length);
+
+		element.innerHTML = "<span>" + typeInStr + "</span>" + restStr;
+		if(index >= paragraphText.length)
+		{
+			 alert('Finish!');
+		}
+    }
+};
+
+
+
+</script>
