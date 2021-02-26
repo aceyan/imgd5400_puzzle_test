@@ -20,38 +20,39 @@ var index = 0;
 
 var element = document.getElementById("p1");
 element.innerHTML = paragraphText;
-/*
-document.onkeydown = function (event) {
-    var e = event || window.event || arguments.callee.caller.arguments[0];
-	 alert(e.keyCode + "   "+ 'i'.charCodeAt(index) );
-    if (e && e.keyCode == 'i'.charCodeAt(0)) { 
-        alert('A');
-    }
-};
-*/
-/*https://aceyan.github.io/imgd5400_puzzle_test/*/
-document.onkeypress = function (event) {
-    var e = event || window.event;
-     //alert(e.keyCode + "   "+ paragraphText.charCodeAt(index) );
-    if (e && e.keyCode == paragraphText.charCodeAt(index)) { 
-        
-		index++;
 
-		var typeInStr = paragraphText.substring(0,index);
-		var cursorStr = paragraphText.charAt(index);
-		var restStr = paragraphText.substring(index + 1, paragraphText.length);
+ window.onload=function() 
+ {
 
-		var typeInStrHTML = "<span style='color:#ff0000;'>" + typeInStr + "</span>";
-		var cursorStrHTML = "<span style='color:#0000ff; text-decoration: underline ;'>"  + cursorStr.bold() + "</span>";
-		var restStrHTML = restStr;
 
-		element.innerHTML =  typeInStrHTML +  cursorStrHTML + restStrHTML;
-		if(index >= paragraphText.length)
-		{
-			 alert('Finish!');
-		}
-    }
-};
+	//https://aceyan.github.io/imgd5400_puzzle_test/
+	document.onkeypress = function (event)
+	 {
+	    var e = event || window.event;
+	     //alert(e.keyCode + "   "+ paragraphText.charCodeAt(index) );
+	    if (e && e.keyCode == paragraphText.charCodeAt(index))
+	    { 
+	        
+			index++;
+
+			var typeInStr = paragraphText.substring(0,index);
+			var cursorStr = paragraphText.charAt(index);
+			var restStr = paragraphText.substring(index + 1, paragraphText.length);
+
+			var typeInStrHTML = "<span style='color:#ff0000;'>" + typeInStr + "</span>";
+			var cursorStrHTML = "<span style='color:#0000ff; text-decoration: underline ;'>"  + cursorStr.bold() + "</span>";
+			var restStrHTML = restStr;
+
+			element.innerHTML =  typeInStrHTML +  cursorStrHTML + restStrHTML;
+			if(index >= paragraphText.length)
+			{
+				 alert('Finish!');
+			}
+	    }
+	};
+
+ }
+
 
 
 
